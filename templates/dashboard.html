@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Course Recommender{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Find Courses Based on Your Interests</h2>
+    
+    <!-- Search Form -->
+    <form method="post" id="recommendForm">
+        <div class="mb-3">
+            <label for="interests" class="form-label">Enter your interests:</label>
+            <input type="text" name="interests" class="form-control" id="interests" placeholder="E.g., Python, AI, Drawing" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Get Recommendations</button>
+    </form>
+
+    <!-- Loading Animation (Hidden by Default) -->
+    <div id="loading" class="text-center mt-3" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Fetching course recommendations...</p>
+    </div>
+
+    {% if recommendations %}
+        <h3 class="mt-4">Recommended Courses</h3>
+        <div class="row">
+            {% for course in recommendations %}
+                <div class="col-md-6">
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.title }}</h5>
+                            <p class="card-text"><strong>Category:</strong> {{ course.category }}</p>
+                            <p class="card-text"><strong>Platform:</strong> {{ course.platform }}</p>
+                            <a href="{{ course.course_link }}" target="_blank" class="btn btn-success btn-sm">View Course</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<!-- JavaScript to Show Loading Animation -->
+<script>
+    document.getElementById("recommendForm").addEventListener("submit", function() {
+        document.getElementById("loading").style.display = "block";
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,198 @@
+/* static/style.css - Professional UI with Dark Mode */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Light Mode (Default) */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    margin: 0;
+    padding-top: 70px; /* Prevent content from being hidden under fixed navbar */
+    padding-bottom: 60px; /* Prevent content from being hidden under fixed footer */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #121212, #1c1c1c);
+    color: #f1f1f1;
+}
+
+/* Fixed Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.5s ease;
+}
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar Brand (Course Recommender) */
+.navbar-brand {
+    font-size: 1.8rem; /* Increased size */
+    font-weight: bold;
+    color: white;
+}
+
+/* Navbar Links (Dashboard, Logout) */
+.navbar-nav .nav-link {
+    font-size: 1.2rem; /* Increased size */
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Dark Mode Navbar Links */
+body.dark-mode .navbar-nav .nav-link {
+    color: #ffcc00;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc00;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background: #ffcc00;
+    color: black;
+    transition: 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background: #ffb300;
+}
+
+/* Containers */
+.container {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+/* Glassmorphism Card */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.5s ease;
+}
+
+/* Dark Mode Cards */
+body.dark-mode .card {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.btn-primary {
+    background: #ffcc00;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #ffb300;
+}
+
+.btn-success {
+    background: #28a745;
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    background: #1f7a36;
+}
+
+/* Form Styling */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Forms */
+body.dark-mode form {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better height */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+/* Specific styling for "Enter Your Interest" box */
+input[name="interests"] {
+    height: 50px; /* Increased height */
+    font-size: 1.1rem;
+}
+
+/* Loading Animation */
+#loading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Fixed Footer */
+footer {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.5s ease;
+}
+
+/* Dark Mode Footer */
+body.dark-mode footer {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .navbar-brand {
+        font-size: 1.5rem; /* Adjusted size for mobile */
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem; /* Adjusted size for mobile */
+    }
+}
